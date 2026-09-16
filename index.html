@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="color-scheme" content="dark">
+    <title>Barbearia do Gomes - Agendamento Online</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<div class="container">
+    <div class="header-logo">
+        <img src="logo.png" alt="Barbearia do Gomes" onerror="this.src='https://via.placeholder.com/200x100?text=Barbearia+do+Gomes'">
+        <h1>Barbearia do Gomes</h1>
+        <div class="pole-divider"></div>
+        <p class="subtitle">Barbeiro desde 2016</p>
+        <p>
+            <a class="address-link" href="https://www.google.com/maps/search/?api=1&query=Av.+Mário+Friggi,+234,+São+José+dos+Campos+-+SP" target="_blank">
+                Av. Mario Friggi, nº 234
+            </a>
+        </p>
+    </div>
+
+    <div id="booking-area">
+        <div class="input-group">
+            <div>
+                <label><small>Nome do Cliente</small></label>
+                <input type="text" id="clienteNome" placeholder="Ex: João Silva" autocomplete="name">
+            </div>
+            <div>
+                <label><small>WhatsApp (DDD + Número)</small></label>
+                <input type="tel" id="clienteNumero" placeholder="12999999999" inputmode="numeric" maxlength="11" autocomplete="tel">
+            </div>
+        </div>
+
+        <label style="display:block; margin-top:5px;"><small>Tipo de Serviço</small></label>
+        <div class="services-grid">
+            <div class="service-card selected" data-slots="1" data-nome="Corte Simples">
+                <h4>Corte Simples</h4>
+                <div class="price">R$ 45,00</div>
+                <div class="duration">30 min</div>
+            </div>
+            <div class="service-card" data-slots="1" data-nome="Barba">
+                <h4>Barba</h4>
+                <div class="price">R$ 35,00</div>
+                <div class="duration">25 min</div>
+            </div>
+            <div class="service-card" data-slots="2" data-nome="Corte e Barba">
+                <h4>Corte e Barba</h4>
+                <div class="price">R$ 70,00</div>
+                <div class="duration">50 min</div>
+            </div>
+            <div class="service-card" data-slots="3" data-nome="Procedimento Químico">
+                <h4>Procedimento Químico</h4>
+                <div class="price">R$ 120,00</div>
+                <div class="duration">90 min</div>
+            </div>
+        </div>
+
+        <label style="display:block; margin-top:5px;"><small>Escolha o Dia</small></label>
+        <select id="dataSelect" style="display: none;"></select>
+        <div id="dateCardsContainer" class="date-scroll-container"></div>
+
+        <h3>Horários Disponíveis</h3>
+        <div class="legend">
+            <div class="legend-item"><span class="dot" style="background:var(--available)"></span> Livre</div>
+            <div class="legend-item"><span class="dot" style="background:var(--occupied)"></span> Agendado</div>
+            <div class="legend-item"><span class="dot" style="background:var(--blocked)"></span> Bloqueado</div>
+            <div class="legend-item"><span class="dot" style="background:var(--gold)"></span> Selecionado</div>
+        </div>
+
+        <div id="scheduleTable" class="schedule-table"></div>
+
+        <button class="main-btn" id="btnReservar">Reservar horário</button>
+        <a class="admin-link" href="admin.html">Painel Administrativo (Barbeiro)</a>
+    </div>
+
+    <div id="success-area" class="hidden" style="text-align: center; padding: 40px 0;">
+        <h2 style="color: var(--available);">Agendado com Sucesso!</h2>
+        <p id="resumoAgendamento"></p>
+        <button class="main-btn" id="btnNovoAgendamento">Novo Agendamento</button>
+    </div>
+</div>
+
+<script type="module" src="js/app.js"></script>
+</body>
+</html>

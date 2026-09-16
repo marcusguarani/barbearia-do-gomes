@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="color-scheme" content="dark">
+    <meta name="robots" content="noindex, nofollow">
+    <title>Painel Administrativo — Barbearia do Gomes</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<div class="container">
+    <div class="header-logo">
+        <img src="logo.png" alt="Barbearia do Gomes" onerror="this.src='https://via.placeholder.com/200x100?text=Barbearia+do+Gomes'">
+        <h1>Barbearia do Gomes</h1>
+        <div class="pole-divider"></div>
+        <p class="subtitle">Painel Administrativo</p>
+    </div>
+
+    <div id="login-area">
+        <form id="formLogin">
+            <label><small>Usuário</small></label>
+            <input type="text" id="loginUsuario" placeholder="Usuário" autocomplete="username" required>
+
+            <label style="display:block; margin-top:14px;"><small>Senha</small></label>
+            <input type="password" id="loginSenha" placeholder="Senha" autocomplete="current-password" required>
+
+            <p id="loginErro" class="login-erro"></p>
+
+            <button type="submit" class="main-btn">Entrar</button>
+        </form>
+        <a class="admin-link" href="index.html">Voltar ao site</a>
+    </div>
+
+    <div id="painel-area" class="hidden">
+        <h2>Painel de Controle</h2>
+        <label><small>Gerenciar agendamentos do dia:</small></label>
+        <select id="adminDataSelect"></select>
+        <div id="adminScheduleList" style="margin-top: 20px; max-height: 400px; overflow-y: auto;"></div>
+        <button class="main-btn" style="background: var(--surface-2); color: var(--text);" id="btnSair">Sair</button>
+        <a class="admin-link" href="index.html">Voltar ao site</a>
+    </div>
+</div>
+
+<div id="modalConfirm" class="modal-overlay hidden">
+    <div class="modal-card">
+        <p id="modalConfirmMsg"></p>
+        <div class="modal-actions">
+            <button type="button" id="modalConfirmCancelar" class="btn-modal btn-modal-secundario">Cancelar</button>
+            <button type="button" id="modalConfirmOk" class="btn-modal btn-modal-perigo">Desmarcar</button>
+        </div>
+    </div>
+</div>
+
+<script type="module" src="js/admin.js"></script>
+</body>
+</html>
